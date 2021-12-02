@@ -6,8 +6,8 @@ import javax.persistence.*;
 public class Tipo_Usuario {
 	@Id
 	@Column(name = "cod_tipo")
-	private int codTipo;
+	private int cod_tipo;
 	
 	@Column(name = "nom_Categoria")
-	private String nomCategoria;
+	private String nom_Categoria;
 }

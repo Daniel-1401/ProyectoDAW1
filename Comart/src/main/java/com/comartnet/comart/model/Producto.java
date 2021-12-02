@@ -7,26 +7,26 @@ import javax.persistence.*;
 public class Producto {
 	@Id
 	@Column(name = "Id_Producto")
-	private int codProducto;
+	private int Id_Producto;
 	
 	@Column(name = "Nom_Producto")
-	private String nomProducto;
+	private String Nom_Producto;
 	
 	@Column(name = "Des_Producto")
-	private String desProducto;
+	private String Des_Producto;
 	
 	@Column(name = "PrecioUnidad")
-	private double precioUnidad;
+	private double PrecioUnidad;
 	
 	@Column(name = "Stock_Producto")
-	private int stockProducto;
+	private int Stock_Producto;
 	
 	@Column(name = "UnidadesEnPedido")
-	private int unidadesEnPedido;
+	private int UnidadesEnPedido;
 	
 	@Column(name = "imagen")
 	private String imagen;
 	
-	@Column(name = "cod_tipo")
-	private int codTipo;
+	@Column(name = "cod_Categoria")
+	private int cod_Categoria;
 }

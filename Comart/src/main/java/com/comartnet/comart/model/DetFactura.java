@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class DetFactura {
 	@Id
 	@Column(name = "num_venta")
-	private String CodDetFactura;
+	private String num_venta;
 	
 	@Column(name = "Id_Producto")
 	private int idProducto;

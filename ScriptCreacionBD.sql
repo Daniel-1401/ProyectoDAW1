@@ -7,8 +7,8 @@ USE Travel2021;
 
 
 CREATE TABLE Tipo_Usuarios (
-  cod_tipo int primary key ,
-  nom_Categoria varchar(15) not null
+  cod_TipoUsuario int primary key ,
+  nom_TipoUsuario varchar(15) not null
 );
 
 
@@ -16,17 +16,17 @@ CREATE TABLE Usuario (
   cod_Usuario char(6) primary key ,
   nom_Usuario varchar(15) not null,
   ape_Usuario varchar(15) null,
-  cod_tipo int,
-  usuario varchar(15) not null,
+  cod_TipoUsuario int,
+  email varchar(15) not null,
   clave varchar(15) not null,
   telefono char(9) UNIQUE NULL,
   fecha_reg date,
   fecha_nac date,
-  FOREIGN KEY (cod_tipo) REFERENCES Tipo_Usuarios (cod_tipo)
+  FOREIGN KEY (cod_TipoUsuario) REFERENCES Tipo_Usuarios (cod_TipoUsuario)
 );
 
 CREATE TABLE Categoria (
-  cod_tipo int primary key ,
+  cod_Categoria int primary key ,
   nom_Categoria varchar(15) not null
 );
 
@@ -40,43 +40,43 @@ CREATE TABLE Productos (
   Stock_Producto smallint not null,
   UnidadesEnPedido smallint not null,
   imagen varchar(100) not null,
-  cod_tipo int,
-  FOREIGN KEY (cod_tipo) REFERENCES Categoria (cod_tipo)
+  cod_Categoria int,
+  FOREIGN KEY (cod_Categoria) REFERENCES Categoria (cod_Categoria)
 );
 
 
 
-CREATE TABLE Factura (
-  num_venta CHAR(6) primary key NOT NULL,
-  Id_Producto int,
+CREATE TABLE Boleta (
+  IdBoleta CHAR(6) primary key NOT NULL,
+  cod_Usuario char(6),
   fec_venta DATE NOT NULL,
   hora_venta TIME NULL,
   tot_venta int not null,
-  FOREIGN KEY (Id_Producto) REFERENCES Productos (Id_Producto)
+  FOREIGN KEY (cod_Usuario) REFERENCES Usuario (cod_Usuario)
 );
 
 
 
 
-CREATE TABLE DetFactura (
-num_venta CHAR(6),
-Id_Producto int,
-cant_venta INT NOT NULL,
-precio_venta int NOT NULL,
-importot_venta int NOT NULL,
-constraint num_venta Primary key (num_venta,Id_Producto))
+CREATE TABLE DetalleBoleta (
+  IdDetalleBoleta CHAR(6),
+  Id_Producto int NOT NULL,
+  Cantidad INT NOT NULL,
+  Precio double NOT NULL,
+  Total double,
+  constraint IdDetalleBoleta Primary key (IdDetalleBoleta,Id_Producto))
 ;
 
 
+/*
+select * from DetalleBoleta ;
 
-select * from DetFactura ;
-
-select * from Factura ;
+select * from Boleta ;
 
 
 
-SELECT SUBSTRING(MAX(num_venta),1,6) FROM Factura;
-
+SELECT SUBSTRING(MAX(IdDetalleBoleta),1,6) FROM Boleta;
+*/
 
 
 /**************************** Insert ***************************/
@@ -88,15 +88,14 @@ INSERT INTO Tipo_Usuarios VALUES('2', 'Cliente');
 
 
 
-
-insert into Usuario values ('US0001','Ana Maria','Cardenas Llana',2,'an1@gmail.com','123456','945845124','2021/01/19','2000/01/25');
-insert into Usuario values ('US0002','Ana Maria','Cardenas Llana',2,'an2@gmail.com','123456','945845125','2021/01/19','2000/01/25');
-insert into Usuario values ('US0003','Ana Maria','Cardenas Llana',2,'an3@gmail.com','123456','945845126','2021/01/19','2000/01/25');
-insert into Usuario values ('US0004','Ana Maria','Cardenas Llana',2,'an4@gmail.com','123456','945845127','2021/01/19','2000/01/25');
-insert into Usuario values ('US0005','Ana Maria','Cardenas Llana',2,'an5@gmail.com','123456','945845128','2021/01/19','2000/01/25');
-insert into Usuario values ('US0006','Ana Maria','Cardenas Llana',2,'an6@gmail.com','123456','945845129','2021/01/19','2000/01/25');
-insert into Usuario values ('US0007','Ana Maria','Cardenas Llana',2,'an7@gmail.com','123456','945845133','2021/01/19','2000/01/25');
-
+insert into Usuario values ('US0001','Admin 1','ApellidoAdmin 1',1,'an1@gmail.com','123456','945845124','2021/01/19','2000/01/25');
+insert into Usuario values ('US0002','Cliente 1','ApeCliente 1',2,'an1@gmail.com','123456','945844124','2021/01/19','2000/01/25');
+insert into Usuario values ('US0003','Cliente 2','ApeCliente 2',2,'an2@gmail.com','123456','945345125','2021/01/19','2000/01/25');
+insert into Usuario values ('US0004','Cliente 3','ApeCliente 3',2,'an3@gmail.com','123456','945845116','2021/01/19','2000/01/25');
+insert into Usuario values ('US0005','Cliente 4','ApeCliente 4',2,'an4@gmail.com','123456','945845121','2021/01/19','2000/01/25');
+insert into Usuario values ('US0006','Cliente 5','ApeCliente 5',2,'an5@gmail.com','123456','945845125','2021/01/19','2000/01/25');
+insert into Usuario values ('US0007','Cliente 6','ApeCliente 6',2,'an6@gmail.com','123456','945845128','2021/01/19','2000/01/25');
+insert into Usuario values ('US0008','Cliente 7','ApeCliente 7',2,'an7@gmail.com','123456','945845137','2021/01/19','2000/01/25');
 
 
 
@@ -112,26 +111,26 @@ INSERT INTO Categoria VALUES(8, 'Peruanitos');
 
 
 
-INSERT INTO Productos VALUES(1, ' Piqueo Chelero (	Piqueo Rústico + 02 cusqueñas personales','Chicharrón de pollo, 7 alitas bbq, 5 tequeños, papas fritas peruanas + 2 cusqueñas personales',55.90,30,0,'https://cdn.rusticadelivery.com/images/products/319/319-1613501343-602c139f7c7e1.jpeg',1);
+INSERT INTO Productos VALUES(1, ' Piqueo Chelero (	Piqueo Rustico + 02 cusquenioas personales','Chicharron de pollo, 7 alitas bbq, 5 tequenioos, papas fritas peruanas + 2 cusquenioas personales',55.90,30,0,'https://cdn.rusticadelivery.com/images/products/319/319-1613501343-602c139f7c7e1.jpeg',1);
 INSERT INTO Productos VALUES(2, 'Pizza Americana o Chorizo + Gaseosa de 1 L.','Elige entre una pizza 1/2 metro americana o chorizo y llevate una gaseosa de 1L. al mejor precio',19.90,15,0,'https://cdn.rusticadelivery.com/images/products/334/334-1624663864-60d667380086f.jpeg',1);
-INSERT INTO Productos VALUES(3, 'Piqueo Rustico + Gaseosa 1L.','Chicharrón De Pollo, Alitas , Tequeños, Papas Fritas Peruanas + Gaseosa 1L.',42.90,50,0,'https://cdn.rusticadelivery.com/images/products/218/218-1592690927-5eee88efa2d6a.jpg',1);
+INSERT INTO Productos VALUES(3, 'Piqueo Rustico + Gaseosa 1L.','Chicharron De Pollo, Alitas , Tequenioos, Papas Fritas Peruanas + Gaseosa 1L.',42.90,50,0,'https://cdn.rusticadelivery.com/images/products/218/218-1592690927-5eee88efa2d6a.jpg',1);
 INSERT INTO Productos VALUES(4, '1 Pollo a la Brasa + Gaseosa 1L.','Pollo a la Brasa +  Papas Fritas Peruanas + Bebida 1L.',49.90,50,0,'https://cdn.rusticadelivery.com/images/products/215/215-1594574510-5f0b46ae73527.jpg',1);
-INSERT INTO Productos VALUES(5, 'PORTA AVIÓN (MEDIA PARRILLA + 1/4 POLLO A LA BRASA + 5 ALITAS)','Media Parrilla: Chuleta (100gr), Bife (100gr), Filete pollo (100gr), 1 Chorizo, Mollejitas (125gr), 1 anticucho + papas fritas peruanas + ensalada + 1/4 de Pollo + 5 alitas',35.90,50,0,'https://cdn.rusticadelivery.com/images/products/327/327-1618273266-6074e3f2bb1a2.jpeg',1);
-INSERT INTO Productos VALUES(6, 'Promo Poker a lo Alfredo + pan al ajo + gaseosa personal','Poker a lo Alfredo (Lasagna + Fetuccini + Ravioles) + 1/2 porción de Pan Al Ajo + Gaseosa personal',29.90,20,0,'https://cdn.rusticadelivery.com/images/products/212/212-1598141673-5f41b4e9ad86a.jpeg',1);
+INSERT INTO Productos VALUES(5, 'PORTA AVIoN (MEDIA PARRILLA + 1/4 POLLO A LA BRASA + 5 ALITAS)','Media Parrilla: Chuleta (100gr), Bife (100gr), Filete pollo (100gr), 1 Chorizo, Mollejitas (125gr), 1 anticucho + papas fritas peruanas + ensalada + 1/4 de Pollo + 5 alitas',35.90,50,0,'https://cdn.rusticadelivery.com/images/products/327/327-1618273266-6074e3f2bb1a2.jpeg',1);
+INSERT INTO Productos VALUES(6, 'Promo Poker a lo Alfredo + pan al ajo + gaseosa personal','Poker a lo Alfredo (Lasagna + Fetuccini + Ravioles) + 1/2 porcion de Pan Al Ajo + Gaseosa personal',29.90,20,0,'https://cdn.rusticadelivery.com/images/products/212/212-1598141673-5f41b4e9ad86a.jpeg',1);
 
-INSERT INTO Productos VALUES(7, 'CUSQUEÑA DOBLE MALTA EDICION RUSTICA 28 AÑOS','Cerveza doble malta Cusqueña Edición Rustica por sus 28 años',9.90,20,0,'https://cdn.rusticadelivery.com/images/products/345/345-1631743142-61426ca62fc50.jpg',2);
-INSERT INTO Productos VALUES(8, 'Pisco Sours 1/2 Litro','Pisco + clara de huevo + jarabe de goma + limón + sabor a elegir',18.90,30,0,'https://cdn.rusticadelivery.com/images/products/160/160-1588568799-5eafa2df74a2a.jpg',2);
+INSERT INTO Productos VALUES(7, 'CUSQUEnioA DOBLE MALTA EDICION RUSTICA 28 AnioOS','Cerveza doble malta Cusquenioa Edicion Rustica por sus 28 anioos',9.90,20,0,'https://cdn.rusticadelivery.com/images/products/345/345-1631743142-61426ca62fc50.jpg',2);
+INSERT INTO Productos VALUES(8, 'Pisco Sours 1/2 Litro','Pisco + clara de huevo + jarabe de goma + limon + sabor a elegir',18.90,30,0,'https://cdn.rusticadelivery.com/images/products/160/160-1588568799-5eafa2df74a2a.jpg',2);
 INSERT INTO Productos VALUES(9, 'Rusos 1/2 Litro','A base de vodka + sabor a elegir',21.90,10,0,'https://cdn.rusticadelivery.com/images/products/134/134-1602450732-5f83752c38530.jpeg',2);
 INSERT INTO Productos VALUES(10, 'Anti Stress 1/2 Litro','Ron + vodka + tequila + sabor a elegir',24.90,10,0,'https://cdn.rusticadelivery.com/images/products/176/176-1589572914-5ebef5323b144.jpg',2);
-INSERT INTO Productos VALUES(11, 'Chilcanos 1/2 Litro','Pisco + schweppes + hielo + limón + sabor a elegir',19.90,10,0,'https://cdn.rusticadelivery.com/images/products/106/106-1589572256-5ebef2a0a9f6d.jpg',2);
-INSERT INTO Productos VALUES(12, 'Mojitos 1/2 Litro','Ron + azúcar + hierba buena + zumo de limón + sabor a elegir',21.90,10,0,'https://cdn.rusticadelivery.com/images/products/120/120-1588099277-5ea878cd9bc92.jpg',2);	
+INSERT INTO Productos VALUES(11, 'Chilcanos 1/2 Litro','Pisco + schweppes + hielo + limon + sabor a elegir',19.90,10,0,'https://cdn.rusticadelivery.com/images/products/106/106-1589572256-5ebef2a0a9f6d.jpg',2);
+INSERT INTO Productos VALUES(12, 'Mojitos 1/2 Litro','Ron + azucar + hierba buena + zumo de limon + sabor a elegir',21.90,10,0,'https://cdn.rusticadelivery.com/images/products/120/120-1588099277-5ea878cd9bc92.jpg',2);	
 
-INSERT INTO Productos VALUES(13, 'Pizza Chorizo','chorizo español y mozzarella. Disfrútala desde 1/4 de mt.',13.90,10,0,'https://cdn.rusticadelivery.com/images/products/7/7-1588566183-5eaf98a7d76fd.jpg',3);
-INSERT INTO Productos VALUES(14, 'Pizza Americana','jamón, pimiento y mozzarella. Disfrútala desde 1/4 de mt.',13.90,10,0,'https://cdn.rusticadelivery.com/images/products/6/6-1588566164-5eaf98947b52b.jpg',3);
-INSERT INTO Productos VALUES(15, 'Pizza Hawaiana','jamón, piña, durazno y mozzarella. Disfrútala desde 1/4 de mt.',16.90,10,0,'https://cdn.rusticadelivery.com/images/products/8/8-1594509471-5f0a489f4f936.jpg',3);
-INSERT INTO Productos VALUES(16, 'Pizza Hawaiana con Pollo','Piña, durazno, queso mozzarella, jamón, trozos de filete de pollo y salsa ranchera',17.90,10,0,'https://cdn.rusticadelivery.com/images/products/307/307-1611174757-60089365894e3.jpeg',3);
-INSERT INTO Productos VALUES(17, 'Pizza 4X4','italiana+ hawaiana+ americana + chorizo. Disfrútala desde 1/4 de mt.',17.90,10,0,'https://cdn.rusticadelivery.com/images/products/9/9-1595528617-5f19d5a941f06.jpg',3);
-INSERT INTO Productos VALUES(18, 'Pizza Rustica','jamón, tocino, filete pechuga, carne, mozzarella y salsa ranchera. Disfrútala desde 1/4 de mt.',20.90,10,0,'https://cdn.rusticadelivery.com/images/products/12/12-1588566365-5eaf995d170e7.jpg',3);
+INSERT INTO Productos VALUES(13, 'Pizza Chorizo','chorizo espaniool y mozzarella. Disfrutala desde 1/4 de mt.',13.90,10,0,'https://cdn.rusticadelivery.com/images/products/7/7-1588566183-5eaf98a7d76fd.jpg',3);
+INSERT INTO Productos VALUES(14, 'Pizza Americana','jamon, pimiento y mozzarella. Disfrutala desde 1/4 de mt.',13.90,10,0,'https://cdn.rusticadelivery.com/images/products/6/6-1588566164-5eaf98947b52b.jpg',3);
+INSERT INTO Productos VALUES(15, 'Pizza Hawaiana','jamon, pinioa, durazno y mozzarella. Disfrutala desde 1/4 de mt.',16.90,10,0,'https://cdn.rusticadelivery.com/images/products/8/8-1594509471-5f0a489f4f936.jpg',3);
+INSERT INTO Productos VALUES(16, 'Pizza Hawaiana con Pollo','Pinioa, durazno, queso mozzarella, jamon, trozos de filete de pollo y salsa ranchera',17.90,10,0,'https://cdn.rusticadelivery.com/images/products/307/307-1611174757-60089365894e3.jpeg',3);
+INSERT INTO Productos VALUES(17, 'Pizza 4X4','italiana+ hawaiana+ americana + chorizo. Disfrutala desde 1/4 de mt.',17.90,10,0,'https://cdn.rusticadelivery.com/images/products/9/9-1595528617-5f19d5a941f06.jpg',3);
+INSERT INTO Productos VALUES(18, 'Pizza Rustica','jamon, tocino, filete pechuga, carne, mozzarella y salsa ranchera. Disfrutala desde 1/4 de mt.',20.90,10,0,'https://cdn.rusticadelivery.com/images/products/12/12-1588566365-5eaf995d170e7.jpg',3);
 
 INSERT INTO Productos VALUES(19, 'Poker en Salsa de Carne','Poker en Salsa de Carne',29.90,10,0,'https://cdn.rusticadelivery.com/images/products/20/20-1588091535-5ea85a8f2c03e.JPG',4);
 INSERT INTO Productos VALUES(20, 'Poker a lo Alfredo',' Lasagna + Fetuccini + Ravioles',29.90,10,0,'https://cdn.rusticadelivery.com/images/products/21/21-1588276263-5eab2c273601f.jpg',4);
@@ -147,7 +146,7 @@ INSERT INTO Productos VALUES(28, 'Filete Parrillero','Filete pechuga + mollejita
 INSERT INTO Productos VALUES(29, '1  Pollo a la Brasa','1 Pollo a la Brasa + Papas Fritas Peruanas + Ensalada',55.90,10,0,'https://cdn.rusticadelivery.com/images/products/34/34-1591653963-5edeb64b78aa2.jpeg',5);
 INSERT INTO Productos VALUES(30, '1/2 Pollo a la Brasa','1/2 Pollo a la Brasa + Papas Fritas Peruanas + Ensalada',31.90,10,0,'https://cdn.rusticadelivery.com/images/products/33/33-1594574532-5f0b46c47639c.jpg',5);
 
-INSERT INTO Productos VALUES(31, 'PORTA AVIÓN (MEDIA PARRILLA + 1/4 POLLO A LA BRASA + 5 ALITAS)','Media Parrilla: Chuleta (100gr), Bife (100gr), Filete pollo (100gr), 1 Chorizo, Mollejitas (125gr), 1 anticucho + papas fritas peruanas + ensalada + 1/4 de Pollo + 5 alitas',70.80,10,0,'https://cdn.rusticadelivery.com/images/products/327/327-1618273266-6074e3f2bb1a2.jpeg',6);
+INSERT INTO Productos VALUES(31, 'PORTA AVIoN (MEDIA PARRILLA + 1/4 POLLO A LA BRASA + 5 ALITAS)','Media Parrilla: Chuleta (100gr), Bife (100gr), Filete pollo (100gr), 1 Chorizo, Mollejitas (125gr), 1 anticucho + papas fritas peruanas + ensalada + 1/4 de Pollo + 5 alitas',70.80,10,0,'https://cdn.rusticadelivery.com/images/products/327/327-1618273266-6074e3f2bb1a2.jpeg',6);
 INSERT INTO Productos VALUES(32, '1/2 Parrilla','Chuleta (100gr), Bife (100gr), Filete pollo (100gr), 1 Chorizo, Mollejitas (125gr), 1 anticucho + papas fritas peruanas + ensalada',24.90,10,0,'https://cdn.rusticadelivery.com/images/products/55/55-1590419968-5ecbe20045aff.jpeg',6);
 INSERT INTO Productos VALUES(33, 'Parrilla Entera ','Chuleta (200gr), Bife (200gr), Filete pollo (200gr), 2 Chorizo, Mollejitas (250gr), 2 anticuchos + papas fritas peruanas + ensalada',99.90,10,0,'https://cdn.rusticadelivery.com/images/products/56/56-1590419951-5ecbe1ef19b2e.jpeg',6);
 INSERT INTO Productos VALUES(34, 'Anticuchos ','2 palitos de anticuchos y papas fritas peruanas.',23.90,10,0,'https://cdn.rusticadelivery.com/images/products/48/48-1602450609-5f8374b1666d0.jpeg',6);
@@ -155,49 +154,40 @@ INSERT INTO Productos VALUES(35, 'Anticuchos + Mollejitas','2 palitos de anticuc
 INSERT INTO Productos VALUES(36, 'Mollejitas','Mollejitas + papas fritas peruanas + ensalada',22.90,10,0,'https://cdn.rusticadelivery.com/images/products/47/47-1588567543-5eaf9df76c2ff.jpg',6);
 
 INSERT INTO Productos VALUES(37, 'Alitas 4 sabores','7 alitas picantes, 7 alitas broaster, 7 alitas acevichadas, 7 alitas BBQ y papas fritas',69.90,10,0,'https://cdn.rusticadelivery.com/images/products/349/349-1633619339-615f0d8b6c2db.jpg',7);
-INSERT INTO Productos VALUES(38, 'Alitas Acevichadas','14 alitas broaster bañadas en salsa acevichada decoradas con culantro picado y ají limo picado',31.90,10,0,'https://cdn.rusticadelivery.com/images/products/341/341-1629132053-611a95151fed7.jpeg',7);
-INSERT INTO Productos VALUES(39, 'Alitas Picantes','14 alitas fritas salteadas en salsa de rocoto acompañadas de salsa de limón',31.90,10,0,'https://cdn.rusticadelivery.com/images/products/63/63-1629148892-611ad6dc8517e.jpg',7);
-INSERT INTO Productos VALUES(40, 'Alitas BBQ','14 alitas fritas salteadas en salsa BBQ acompañadas de salsa de ají',31.90,10,0,'https://cdn.rusticadelivery.com/images/products/62/62-01588013094.jpg',7);
-INSERT INTO Productos VALUES(41, 'Alitas Broaster','14 alitas broaster acompañadas de salsa de ají',31.90,10,0,'https://cdn.rusticadelivery.com/images/products/64/64-1629148910-611ad6eed3f70.jpg',7);
-INSERT INTO Productos VALUES(42, 'Alitas 3 Sabores','7 Alitas BBQ,  7 picantes y 7 broaster acompañadas de salsa de ají y limón',39.90,10,0,'https://cdn.rusticadelivery.com/images/products/65/65-1629148931-611ad70378c2f.jpg',7);
+INSERT INTO Productos VALUES(38, 'Alitas Acevichadas','14 alitas broaster banioadas en salsa acevichada decoradas con culantro picado y aji limo picado',31.90,10,0,'https://cdn.rusticadelivery.com/images/products/341/341-1629132053-611a95151fed7.jpeg',7);
+INSERT INTO Productos VALUES(39, 'Alitas Picantes','14 alitas fritas salteadas en salsa de rocoto acompanioadas de salsa de limon',31.90,10,0,'https://cdn.rusticadelivery.com/images/products/63/63-1629148892-611ad6dc8517e.jpg',7);
+INSERT INTO Productos VALUES(40, 'Alitas BBQ','14 alitas fritas salteadas en salsa BBQ acompanioadas de salsa de aji',31.90,10,0,'https://cdn.rusticadelivery.com/images/products/62/62-01588013094.jpg',7);
+INSERT INTO Productos VALUES(41, 'Alitas Broaster','14 alitas broaster acompanioadas de salsa de aji',31.90,10,0,'https://cdn.rusticadelivery.com/images/products/64/64-1629148910-611ad6eed3f70.jpg',7);
+INSERT INTO Productos VALUES(42, 'Alitas 3 Sabores','7 Alitas BBQ,  7 picantes y 7 broaster acompanioadas de salsa de aji y limon',39.90,10,0,'https://cdn.rusticadelivery.com/images/products/65/65-1629148931-611ad70378c2f.jpg',7);
 
 INSERT INTO Productos VALUES(43, 'Aeropuerto Rustico','Tallarin saltado con arroz chaufa y tortilla de huevo',19.90,10,0,'https://cdn.rusticadelivery.com/images/products/339/339-1628026190-6109b54ed9c4f.jpg',8);
-INSERT INTO Productos VALUES(44, 'Fetuccini Verde con Milanesa de Pollo','Disfruta de esta deliciosa combinación de unos fetuccinis en salsa verde con una milanesa de pollo para acompañarla',19.90,10,0,'https://cdn.rusticadelivery.com/images/products/344/344-1631137834-6139302a55f56.jpeg',8);
+INSERT INTO Productos VALUES(44, 'Fetuccini Verde con Milanesa de Pollo','Disfruta de esta deliciosa combinacion de unos fetuccinis en salsa verde con una milanesa de pollo para acompanioarla',19.90,10,0,'https://cdn.rusticadelivery.com/images/products/344/344-1631137834-6139302a55f56.jpeg',8);
 INSERT INTO Productos VALUES(45, 'Anticuchos','2 palitos de anticuchos y papas fritas peruanas.',19.90,10,0,'https://cdn.rusticadelivery.com/images/products/48/48-1602450609-5f8374b1666d0.jpeg',8);
 INSERT INTO Productos VALUES(46, 'Anticuchos + Mollejitas','2 palitos de anticuchos, papas fritas peruanas y mollejitas.',19.90,10,0,'https://cdn.rusticadelivery.com/images/products/53/53-01588010986.jpg',8);
-INSERT INTO Productos VALUES(47, 'Tallarín S/Pollo','Tallarin saltado con trozos de pollo',25.90,10,0,'https://cdn.rusticadelivery.com/images/products/70/70-1588276581-5eab2d65d721b.jpg',8);
+INSERT INTO Productos VALUES(47, 'Tallarin S/Pollo','Tallarin saltado con trozos de pollo',25.90,10,0,'https://cdn.rusticadelivery.com/images/products/70/70-1588276581-5eab2d65d721b.jpg',8);
 INSERT INTO Productos VALUES(48, 'Pollo Saltado','Pollo saltado, papas y arroz.',25.90,10,0,'https://cdn.rusticadelivery.com/images/products/71/71-1613268300-6028854c734b8.png',8);
 
 
-
-
-Insert Into Factura VALUES ('DF0001',1,'2020-03-25','12:21:11',200);
-Insert Into Factura VALUES ('DF0002',10,'2020-03-25','12:21:11',100);
-Insert Into Factura VALUES ('DF0003',11,'2020-03-25','12:21:11',80);
-Insert Into Factura VALUES ('DF0004',20,'2020-03-25','12:21:11',90);
-Insert Into Factura VALUES ('DF0005',21,'2020-03-25','12:21:11',65);
-Insert Into Factura VALUES ('DF0006',30,'2020-03-25','12:21:11',80);
-Insert Into Factura VALUES ('DF0007',31,'2020-03-25','12:21:11',70);
-Insert Into Factura VALUES ('DF0008',40,'2020-03-25','12:21:11',60);
-Insert Into Factura VALUES ('DF0009',41,'2020-03-25','12:21:11',50);
-Insert Into Factura VALUES ('DF0010',48,'2020-03-25','12:21:11',80);
+Insert Into Boleta VALUES ('DF0001','US0001','2020-03-25','12:21:11',200);
+Insert Into Boleta VALUES ('DF0002','US0002','2020-03-25','12:21:11',100);
+Insert Into Boleta VALUES ('DF0003','US0003','2020-03-25','12:21:11',80);
+Insert Into Boleta VALUES ('DF0004','US0004','2020-03-25','12:21:11',90);
+Insert Into Boleta VALUES ('DF0005','US0005','2020-03-25','12:21:11',65);
+Insert Into Boleta VALUES ('DF0006','US0006','2020-03-25','12:21:11',80);
+Insert Into Boleta VALUES ('DF0007','US0007','2020-03-25','12:21:11',70);
 
 
 
-
-
-
-
-INSERT INTO DetFactura VALUES ('DF0001',5,2,930,1860);
-INSERT INTO DetFactura VALUES ('DF0002',2,2,930,1860);
-INSERT INTO DetFactura VALUES ('DF0003',20,2,930,1860);
-INSERT INTO DetFactura VALUES ('DF0004',15,2,930,1860);
-INSERT INTO DetFactura VALUES ('DF0005',23,2,930,1860);
-INSERT INTO DetFactura VALUES ('DF0006',10,2,930,1860);
-INSERT INTO DetFactura VALUES ('DF0007',8,2,930,1860);
-INSERT INTO DetFactura VALUES ('DF0008',19,2,930,1860);
-INSERT INTO DetFactura VALUES ('DF0009',31,2,930,1860);
-INSERT INTO DetFactura VALUES ('DF0010',42,2,930,1860);
+INSERT INTO DetalleBoleta VALUES ('DF0001',5,2,930,1234);
+INSERT INTO DetalleBoleta VALUES ('DF0002',2,2,930,1234);
+INSERT INTO DetalleBoleta VALUES ('DF0003',20,2,930,1324);
+INSERT INTO DetalleBoleta VALUES ('DF0004',15,2,930,1234);
+INSERT INTO DetalleBoleta VALUES ('DF0005',23,2,930,4321);
+INSERT INTO DetalleBoleta VALUES ('DF0006',10,2,930,1234);
+INSERT INTO DetalleBoleta VALUES ('DF0007',8,2,930,3211);
+INSERT INTO DetalleBoleta VALUES ('DF0008',19,2,930,3214);
+INSERT INTO DetalleBoleta VALUES ('DF0009',31,2,930,1234);
+INSERT INTO DetalleBoleta VALUES ('DF0010',42,2,930,1234);
 
 
 

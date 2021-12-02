@@ -2,20 +2,20 @@ package com.comartnet.comart.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Usuarios")
+@Table(name = "Usuario")
 public class Usuario {
 	@Id
 	@Column(name = "cod_Usuario")
-	private String codUsuario;
+	private String cod_Usuario;
 	
 	@Column(name = "nom_Usuario")
-	private String nomUsuario;
+	private String nom_Usuario;
 	
 	@Column(name = "ape_Usuario")
-	private String apeUsuario;
+	private String ape_Usuario;
 	
 	@Column(name = "cod_tipo")
-	private int codTipo;
+	private int cod_tipo;
 	
 	@Column(name = "email")
 	private String email;
@@ -27,8 +27,8 @@ public class Usuario {
 	private String telefono;
 	
 	@Column(name = "fecha_reg")
-	private String fechaRegistro;
+	private String fecha_reg;
 	
 	@Column(name = "fecha_nac")
-	private String fechaNacimiento;
+	private String fecha_nac;
 }

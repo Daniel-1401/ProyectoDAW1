@@ -1,35 +1,14 @@
 package com.comartnet.comart.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "Productos")
+@Table(name = "Categoria")
 public class Categoria {
 	@Id
-	@Column(name = "Id_Producto")
-	private int codProducto;
+	@Column(name = "cod_Categoria")
+	private int cod_Categoria;
 	
-	@Column(name = "nom_categoria")
-	private String nombreCategoria;
-	
-	@Column(name = "des_Producto")
-	private String descripProducto;
-	
-	@Column(name = "PrecioUnidad")
-	private double precioUnidad;
-	
-	@Column(name = "Stock_Producto")
-	private int stockProducto;
-	
-	@Column(name = "UnidadesEnPedido")
-	private int unidadesEnPedido;
-	
-	@Column(name = "imagen")
-	private String imagen;
-	
-	@Column(name = "cod_tipo")
-	private int codTipo;
+	@Column(name = "nom_Categoria")
+	private String nom_Categoria;
 }

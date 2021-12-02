@@ -9,18 +9,18 @@ import javax.persistence.Table;
 @Entity(name = "Factura")
 public class Factura {
 	@Id
-	@Column(name = "num_venta")
-	private String codFactura;
+	@Column(name = "num_factura")
+	private String num_factura;
 	
 	@Column(name = "Id_Producto")
-	private int codProducto;
+	private int Id_Producto;
 	
 	@Column(name = "fec_venta")
-	private String fchVenta;
+	private String fec_venta;
 	
 	@Column(name = "hora_venta")
-	private String horaVenta;
+	private String hora_venta;
 	
 	@Column(name = "tot_venta")
-	private int totVenta;
+	private int tot_venta;
 }
