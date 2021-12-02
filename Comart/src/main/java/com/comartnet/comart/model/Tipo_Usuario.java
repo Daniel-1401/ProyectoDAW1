@@ -5,9 +5,9 @@ import javax.persistence.*;
 @Table(name = "Tipo_Usuarios")
 public class Tipo_Usuario {
 	@Id
-	@Column(name = "cod_tipo")
-	private int cod_tipo;
+	@Column(name = "cod_TipoUsuario")
+	private int cod_TipoUsuario;
 	
-	@Column(name = "nom_Categoria")
-	private String nom_Categoria;
+	@Column(name = "nom_TipoUsuario")
+	private String nom_TipoUsuario;
 }

@@ -6,14 +6,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Table
-@Entity(name = "Factura")
-public class Factura {
+@Entity(name = "Boleta")
+public class Boleta {
 	@Id
-	@Column(name = "num_factura")
-	private String num_factura;
+	@Column(name = "IdBoleta")
+	private String IdBoleta;
 	
-	@Column(name = "Id_Producto")
-	private int Id_Producto;
+	@Column(name = "cod_Usuario")
+	private String cod_Usuario;
 	
 	@Column(name = "fec_venta")
 	private String fec_venta;
@@ -23,4 +23,6 @@ public class Factura {
 	
 	@Column(name = "tot_venta")
 	private int tot_venta;
+	
+	
 }

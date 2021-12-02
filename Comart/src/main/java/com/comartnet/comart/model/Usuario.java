@@ -14,8 +14,8 @@ public class Usuario {
 	@Column(name = "ape_Usuario")
 	private String ape_Usuario;
 	
-	@Column(name = "cod_tipo")
-	private int cod_tipo;
+	@Column(name = "cod_TipoUsuario")
+	private int cod_TipoUsuario;
 	
 	@Column(name = "email")
 	private String email;
