@@ -64,7 +64,7 @@ CREATE TABLE Travel_Productos (
   foreign key (cod_tipo) references TravelTipo_Productos (cod_tipo)
 );
 
-INSERT INTO Travel_Productos VALUES(1, ' Piqueo Chelero (	Piqueo R�stico + 02 cusque�as personales','Chicharr�n de pollo, 7 alitas bbq, 5 teque�os, papas fritas peruanas + 2 cusque�as personales',55.90,30,0,'https://cdn.rusticadelivery.com/images/products/319/319-1613501343-602c139f7c7e1.jpeg',1);
+INSERT INTO Travel_Productos VALUES(1, ' Piqueo Chelero (	Piqueo R�stico + 02 cusqueñas personales','Chicharrón de pollo, 7 alitas bbq, 5 teque�os, papas fritas peruanas + 2 cusque�as personales',55.90,30,0,'https://cdn.rusticadelivery.com/images/products/319/319-1613501343-602c139f7c7e1.jpeg',1);
 INSERT INTO Travel_Productos VALUES(2, 'Pizza Americana o Chorizo + Gaseosa de 1 L.','Elige entre una pizza 1/2 metro americana o chorizo y llevate una gaseosa de 1L. al mejor precio',19.90,15,0,'https://cdn.rusticadelivery.com/images/products/334/334-1624663864-60d667380086f.jpeg',1);
 INSERT INTO Travel_Productos VALUES(3, 'Piqueo Rustico + Gaseosa 1L.','Chicharr�n De Pollo, Alitas , Teque�os, Papas Fritas Peruanas + Gaseosa 1L.',42.90,50,0,'https://cdn.rusticadelivery.com/images/products/218/218-1592690927-5eee88efa2d6a.jpg',1);
 INSERT INTO Travel_Productos VALUES(4, '1 Pollo a la Brasa + Gaseosa 1L.','Pollo a la Brasa +  Papas Fritas Peruanas + Bebida 1L.',49.90,50,0,'https://cdn.rusticadelivery.com/images/products/215/215-1594574510-5f0b46ae73527.jpg',1);
