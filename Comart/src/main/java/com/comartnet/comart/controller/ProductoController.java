@@ -32,7 +32,7 @@ public class ProductoController {
 	@GetMapping("/nuevoProducto")
 	public String nuevoProd(Model model) {
 		model.addAttribute("producto", new Producto());
-		return "formularioProducto";
+		return "registro-producto";
 	}
 	
 	
