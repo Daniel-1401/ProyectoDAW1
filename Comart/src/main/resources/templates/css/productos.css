@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+.contenidoAllProductsCate{
+    min-width: 1200px;
+    max-width: 1890px;
+    display: block;
+}
+.Productos{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto;
+    background: rgb(224, 224, 224);
+    justify-content: space-around;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.ProductoItem{
+    width: 310px;
+    background: rgb(196, 195, 195);
+    margin: 10px;
+    border-radius: 15px;
+}
+.tituloCategoria{
+    font-size: 40px;
+    font-family: 'Lobster', cursive;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+.contenedorImgPlato{
+    width: 100%;
+}
+.imgPlato{
+    width: 100%;
+    padding: 15px;
+}
+.contenedorDetPlato{
+    background-color: rgb(138, 141, 156);
+    border-radius: 15px 15px 15px 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+.ContenedorNombreDetPlato{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    justify-content: center;
+}
+.btnCompra{
+    justify-content: center;
+    font-size: 22px;
+    margin-right: 10px;
+    margin-left: 5px;
+    border-radius: 5px;
+    
+}
+.NombrePlato{
+    margin-left: 20px;
+    font-size: 20px;
+}

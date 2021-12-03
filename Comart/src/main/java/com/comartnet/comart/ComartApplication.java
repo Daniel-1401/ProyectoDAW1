@@ -8,6 +8,7 @@ public class ComartApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ComartApplication.class, args);
+		System.out.println("TERMINE DE CARGAR");
 	}
 
 }

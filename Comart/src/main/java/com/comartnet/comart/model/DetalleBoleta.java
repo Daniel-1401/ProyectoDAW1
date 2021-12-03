@@ -1,15 +1,16 @@
 package com.comartnet.comart.model;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Table
-@Entity(name = "DetallerBoleta")
-public class DetallerBoleta {
+@Entity(name = "DetalleBoleta")
+public class DetalleBoleta{
 	@Id
 	@Column(name = "IdBoleta")
 	private String IdBoleta;
-	
-	@Id
+
 	@Column(name = "IdDetalleBoleta")
 	private int IdDetalleBoleta;
 	
@@ -73,11 +74,11 @@ public class DetallerBoleta {
 		Total = total;
 	}
 	
-	public DetallerBoleta() {
+	public DetalleBoleta() {
 		super();
 	}
 
-	public DetallerBoleta(String idBoleta, int idDetalleBoleta, int id_Producto, int cantidad, double precio,
+	public DetalleBoleta(String idBoleta, int idDetalleBoleta, int id_Producto, int cantidad, double precio,
 			double total) {
 		super();
 		IdBoleta = idBoleta;
@@ -90,7 +91,7 @@ public class DetallerBoleta {
 
 	@Override
 	public String toString() {
-		return "DetallerBoleta [IdBoleta=" + IdBoleta + ", IdDetalleBoleta=" + IdDetalleBoleta + ", Id_Producto="
+		return "DetalleBoleta [IdBoleta=" + IdBoleta + ", IdDetalleBoleta=" + IdDetalleBoleta + ", Id_Producto="
 				+ Id_Producto + ", Cantidad=" + Cantidad + ", Precio=" + Precio + ", Total=" + Total + "]";
 	}
 }
