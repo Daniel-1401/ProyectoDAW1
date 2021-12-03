@@ -9,9 +9,7 @@ import com.comartnet.comart.model.Producto;
 
 public interface IProductoService {
 
-	@Autowired
-	public List<Producto> listar();
-	
+	public List<Producto> listar();	
 	public Optional<Producto>listarId(int id);
 	public int guardar(Producto p);
 	public void eliminar(int id);

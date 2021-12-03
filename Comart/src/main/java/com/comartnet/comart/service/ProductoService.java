@@ -23,14 +23,18 @@ public class ProductoService implements IProductoService{
 
 	@Override
 	public Optional<Producto> listarId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return data.findById(id);
 	}
 
 	@Override
 	public int guardar(Producto p) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res = 0;
+		Producto prod = data.save(p);
+		
+		if(!prod.equals(null)) {
+			res = 1;
+		}
+		return res;
 	}
 
 	@Override
