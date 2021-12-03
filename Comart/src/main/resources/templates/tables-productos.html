@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -219,12 +219,12 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <th th:text="${p.Id_Producto}" ></th>
-                                            <td th:text="${p.Nom_Producto}"></td>
-                                            <td th:text="${p.PrecioUnidad}"></td>
-                                            <td th:text="${p.Stock_Producto}"></td>
-                                            <td th:text="${p.cod_Categoria}"></td>
+                                        <tr th:each="p : ${lstProductos} ">
+                                            <th th:text="${p.IdProducto}" ></th>
+                                            <td th:text="${p.NomProducto}"></td>
+                                            <td th:text="${p.precioUnidad}"></td>
+                                            <td th:text="${p.StockProducto}"></td>
+                                            <td th:text="${p.codCategoria}"></td>
                                         </tr>
                                     </tbody>
                                 </table>

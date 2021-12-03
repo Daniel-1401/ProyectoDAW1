@@ -7,115 +7,92 @@ import javax.persistence.*;
 public class Producto {
 	@Id
 	@Column(name = "Id_Producto")
-	private int Id_Producto;
+	private int IdProducto;
 	
 	@Column(name = "Nom_Producto")
-	private String Nom_Producto;
+	private String NomProducto;
 	
 	@Column(name = "Des_Producto")
-	private String Des_Producto;
+	private String DesProducto;
 	
 	@Column(name = "PrecioUnidad")
-	private double PrecioUnidad;
+	private double precioUnidad;
 	
 	@Column(name = "Stock_Producto")
-	private int Stock_Producto;
+	private int StockProducto;
 	
 	@Column(name = "UnidadesEnPedido")
-	private int UnidadesEnPedido;
+	private int unidadesEnPedido;
 	
 	@Column(name = "imagen")
-	private String imagen;
+	private String imag;
 	
 	@Column(name = "cod_Categoria")
-	private int cod_Categoria;
+	private int codCategoria;
 
-	public int getId_Producto() {
-		return Id_Producto;
+	public int getIdProducto() {
+		return IdProducto;
 	}
 
-	public void setId_Producto(int id_Producto) {
-		Id_Producto = id_Producto;
+	public void setIdProducto(int idProducto) {
+		IdProducto = idProducto;
 	}
 
-	public String getNom_Producto() {
-		return Nom_Producto;
+	public String getNomProducto() {
+		return NomProducto;
 	}
 
-	public void setNom_Producto(String nom_Producto) {
-		Nom_Producto = nom_Producto;
+	public void setNomProducto(String nomProducto) {
+		NomProducto = nomProducto;
 	}
 
-	public String getDes_Producto() {
-		return Des_Producto;
+	public String getDesProducto() {
+		return DesProducto;
 	}
 
-	public void setDes_Producto(String des_Producto) {
-		Des_Producto = des_Producto;
+	public void setDesProducto(String desProducto) {
+		DesProducto = desProducto;
 	}
 
 	public double getPrecioUnidad() {
-		return PrecioUnidad;
+		return precioUnidad;
 	}
 
 	public void setPrecioUnidad(double precioUnidad) {
-		PrecioUnidad = precioUnidad;
+		this.precioUnidad = precioUnidad;
 	}
 
-	public int getStock_Producto() {
-		return Stock_Producto;
+	public int getStockProducto() {
+		return StockProducto;
 	}
 
-	public void setStock_Producto(int stock_Producto) {
-		Stock_Producto = stock_Producto;
+	public void setStockProducto(int stockProducto) {
+		StockProducto = stockProducto;
 	}
 
 	public int getUnidadesEnPedido() {
-		return UnidadesEnPedido;
+		return unidadesEnPedido;
 	}
 
 	public void setUnidadesEnPedido(int unidadesEnPedido) {
-		UnidadesEnPedido = unidadesEnPedido;
+		this.unidadesEnPedido = unidadesEnPedido;
 	}
 
-	public String getImagen() {
-		return imagen;
+	public String getImag() {
+		return imag;
 	}
 
-	public void setImagen(String imagen) {
-		this.imagen = imagen;
+	public void setImag(String imag) {
+		this.imag = imag;
 	}
 
-	public int getCod_Categoria() {
-		return cod_Categoria;
+	public int getCodCategoria() {
+		return codCategoria;
 	}
 
-	public void setCod_Categoria(int cod_Categoria) {
-		this.cod_Categoria = cod_Categoria;
+	public void setCodCategoria(int codCategoria) {
+		this.codCategoria = codCategoria;
 	}
 
-	public Producto() {
-		super();
-	}
-
-	public Producto(int id_Producto, String nom_Producto, String des_Producto, double precioUnidad, int stock_Producto,
-			int unidadesEnPedido, String imagen, int cod_Categoria) {
-		super();
-		Id_Producto = id_Producto;
-		Nom_Producto = nom_Producto;
-		Des_Producto = des_Producto;
-		PrecioUnidad = precioUnidad;
-		Stock_Producto = stock_Producto;
-		UnidadesEnPedido = unidadesEnPedido;
-		this.imagen = imagen;
-		this.cod_Categoria = cod_Categoria;
-	}
-
-	@Override
-	public String toString() {
-		return "Producto [Id_Producto=" + Id_Producto + ", Nom_Producto=" + Nom_Producto + ", Des_Producto="
-				+ Des_Producto + ", PrecioUnidad=" + PrecioUnidad + ", Stock_Producto=" + Stock_Producto
-				+ ", UnidadesEnPedido=" + UnidadesEnPedido + ", imagen=" + imagen + ", cod_Categoria=" + cod_Categoria
-				+ "]";
-	}
+	
 }
