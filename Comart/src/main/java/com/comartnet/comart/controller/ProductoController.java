@@ -41,8 +41,8 @@ public class ProductoController {
 		model.addAttribute("producto", new Producto());
 		return "registro-producto";
 	}
-	@PostMapping("/insertarProducto")
-	public String insertarProd(@Validated Producto p, Model model ) {
+	@PostMapping("/guardarProducto")
+	public String guardrProd(@Validated Producto p, Model model ) {
 		serviceProducto.guardar(p);
 		return "redirect:/listarProductos";
 	}
@@ -50,7 +50,9 @@ public class ProductoController {
 	@GetMapping("/editarProducto/{id}")
 	public String editarProd(@PathVariable int id, Model model) {
 		Optional<Producto> producto = serviceProducto.listarId(id);
+		List<Categoria> categorias = serviceCategoria.listar();
+		model.addAttribute("lstCategoria", categorias);
 		model.addAttribute("producto", producto);
-		return "formularioProducto";
+		return "actualizar-Producto";
 	}
 }

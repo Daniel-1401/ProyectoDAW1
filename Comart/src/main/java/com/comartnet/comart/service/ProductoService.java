@@ -3,6 +3,8 @@ package com.comartnet.comart.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.xml.crypto.Data;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +31,8 @@ public class ProductoService implements IProductoService{
 	@Override
 	public int guardar(Producto p) {
 		int res = 0;
-		Producto prod = data.save(p);
+		System.out.println(p);
+		Producto prod = data.save(p); 
 		
 		if(!prod.equals(null)) {
 			res = 1;
