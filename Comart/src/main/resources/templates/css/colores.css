@@ -1,0 +1,29 @@
+
+* {
+    padding: 0;
+    margin: 0;
+  }
+  
+body{
+    background: rgb(199, 199, 199);
+    min-width: 1000px;
+}
+header{
+    width: 100%;
+}
+
+main{
+    max-width: 1870px;
+    min-width: 800px;
+    margin: auto;
+}
+
+.bckgN{
+    background-color: rgb(115, 115, 115);
+}
+.bckgY{
+    background-color: rgb(255, 238, 0)
+}
+.bckgW{
+    background-color:rgb(255, 255, 255)
+}

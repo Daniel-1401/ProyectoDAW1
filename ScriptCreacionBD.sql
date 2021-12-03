@@ -65,7 +65,8 @@ CREATE TABLE DetalleBoleta (
   Precio double NOT NULL,
   Total double,
   constraint IdDetalleBoleta Primary key (IdBoleta,IdDetalleBoleta),
-   FOREIGN KEY (Id_Producto) REFERENCES Productos (Id_Producto)
+   FOREIGN KEY (Id_Producto) REFERENCES Productos (Id_Producto),
+   FOREIGN KEY (IdBoleta) REFERENCES Boleta (IdBoleta)
 );
 
 

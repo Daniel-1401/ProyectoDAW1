@@ -1,9 +1,11 @@
 package com.comartnet.comart.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.comartnet.comart.model.Producto;
 
-public interface IProductoRepository extends CrudRepository<Producto, Integer>{
+@Repository
+public interface IProductoRepository extends JpaRepository<Producto, Integer>{
 
 }

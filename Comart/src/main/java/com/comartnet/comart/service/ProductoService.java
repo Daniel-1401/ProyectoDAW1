@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.comartnet.comart.model.Producto;
 import com.comartnet.comart.repository.IProductoRepository;
 import com.comartnet.comart.repositoryService.IProductoService;
 
+@Service
 public class ProductoService implements IProductoService{
 
 	@Autowired
@@ -36,5 +38,4 @@ public class ProductoService implements IProductoService{
 		// TODO Auto-generated method stub
 		
 	}
-
 }
