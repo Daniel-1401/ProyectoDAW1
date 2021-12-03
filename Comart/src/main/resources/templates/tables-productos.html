@@ -72,7 +72,6 @@
                                             <th>Stock</th>
                                             <th>Categoría</th>
                                             <th></th>
-                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -92,8 +91,9 @@
                                             <td th:text="${p.precioUnidad}"></td>
                                             <td th:text="${p.StockProducto}"></td>
                                             <td th:text="${p.codCategoria}"></td>
-                                            <td><button type="button" class="btn btn-outline-primary"><i class="far fa-edit"></i></button>
-                                            	<button type="button" class="btn btn-outline-primary"><i class="far fa-trash-alt"></i></button>
+                                            <td>
+                                            	<a th:href="@{/editarProducto/}+${p.IdProducto}" type="button" class="btn btn-outline-primary"><i class="far fa-edit"></i></a>
+                                            	<a th:href="@{/eliminarProducto/}+${p.IdProducto}" type="button" class="btn btn-outline-primary"><i class="far fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -145,7 +145,15 @@
     
     <!-- Page level custom scripts -->
     <script src="https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json"></script>
-
+	
+	<!-- CDN JQUERY -->
+	<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+	
+	<!-- sweetalert -->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>

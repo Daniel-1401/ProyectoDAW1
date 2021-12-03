@@ -55,4 +55,9 @@ public class ProductoController {
 		model.addAttribute("producto", producto);
 		return "actualizar-Producto";
 	}
+	
+	@GetMapping("/eliminarProducto/{id}")
+	public String eliminarProducto(Model model, @PathVariable int id) {
+		return "redirect:/listarProductos";
+	}
 }

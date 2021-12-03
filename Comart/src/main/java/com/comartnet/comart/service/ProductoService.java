@@ -42,7 +42,6 @@ public class ProductoService implements IProductoService{
 
 	@Override
 	public void eliminar(int id) {
-		// TODO Auto-generated method stub
-		
+		data.deleteById(id);
 	}
 }
