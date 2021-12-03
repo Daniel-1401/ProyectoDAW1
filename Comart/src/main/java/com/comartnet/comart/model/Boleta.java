@@ -1,13 +1,16 @@
 package com.comartnet.comart.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Table
 @Entity(name = "Boleta")
-public class Boleta {
+public class Boleta{
 	@Id
 	@Column(name = "IdBoleta")
 	private String IdBoleta;
