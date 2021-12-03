@@ -17,7 +17,6 @@ import com.comartnet.comart.model.Usuario;
 import com.comartnet.comart.repositoryService.IUsuarioService;
 
 @Controller
-@RequestMapping
 public class UsuarioController {
 	
 	@Autowired

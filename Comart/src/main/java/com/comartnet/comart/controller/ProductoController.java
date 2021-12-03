@@ -12,39 +12,46 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.comartnet.comart.model.Categoria;
 import com.comartnet.comart.model.Producto;
+import com.comartnet.comart.repositoryService.ICategoriaService;
 import com.comartnet.comart.repositoryService.IProductoService;
 
 @Controller
-@RequestMapping
+//@RequestMapping(path = "/producto")
 public class ProductoController {
 	
 	@Autowired
-	private IProductoService service;
+	private IProductoService serviceProducto;
+	
+	@Autowired
+	private ICategoriaService serviceCategoria;
 	
 	@GetMapping("/listarProductos")
 	public String listarprod(Model model) {
-		List<Producto> productos =  service.listar();
+		List<Producto> productos =  serviceProducto.listar();
 		model.addAttribute("lstProductos", productos);
 		return "tables-productos";
 	}
 	
 	@GetMapping("/nuevoProducto")
 	public String nuevoProd(Model model) {
+		List<Categoria> categorias = serviceCategoria.listar();
+		model.addAttribute("lstCategoria", categorias);
 		model.addAttribute("producto", new Producto());
 		return "registro-producto";
 	}
-	
-	
-	@GetMapping("/editarProducto/{id}")
-	public String editarProd(@PathVariable int id, Model model) {
-		Optional<Producto> producto = service.listarId(id);
-		model.addAttribute("producto", producto);
-		return "formularioProducto";
-	}
 	@PostMapping("/insertarProducto")
 	public String insertarProd(@Validated Producto p, Model model ) {
-		service.guardar(p);
-		return "redirect:/listarProdutos";
+		serviceProducto.guardar(p);
+		return "redirect:/listarProductos";
+	}
+	
+
+	@GetMapping("/editarProducto/{id}")
+	public String editarProd(@PathVariable int id, Model model) {
+		Optional<Producto> producto = serviceProducto.listarId(id);
+		model.addAttribute("producto", producto);
+		return "formularioProducto";
 	}
 }

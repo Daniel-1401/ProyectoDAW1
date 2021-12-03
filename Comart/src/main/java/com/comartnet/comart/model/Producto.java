@@ -94,5 +94,13 @@ public class Producto {
 		this.codCategoria = codCategoria;
 	}
 
+	@Override
+	public String toString() {
+		return "Producto [IdProducto=" + IdProducto + ", NomProducto=" + NomProducto + ", DesProducto=" + DesProducto
+				+ ", precioUnidad=" + precioUnidad + ", StockProducto=" + StockProducto + ", unidadesEnPedido="
+				+ unidadesEnPedido + ", imag=" + imag + ", codCategoria=" + codCategoria + "]";
+	}
+
+	
 	
 }
