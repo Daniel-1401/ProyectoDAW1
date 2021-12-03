@@ -73,9 +73,9 @@
               <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
                       <h6 class="collapse-header">Listar</h6>
-                      <a class="collapse-item" href="tables-usuarios.html">Usuarios</a>
-                      <a class="collapse-item" href="tables-categorias.html">Categorías</a>
-                      <a class="collapse-item" href="tables-productos.html">Productos</a>
+                        <a class="collapse-item" href="/listarUsuarios">Usuarios</a>
+                        <a class="collapse-item" href="/listarCategorias">Categorías</a>
+                        <a class="collapse-item" href="/listarProductos">Productos</a>
                       <div class="collapse-divider"></div>
                       <h6 class="collapse-header">Crear:</h6>
                       <a class="collapse-item" href="registro-usuarios.html">Usuarios</a>
@@ -162,7 +162,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Comart ADMIN</span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -198,8 +198,10 @@
                             <div class="col-12 col-lg-9 col-xl-7">
                               <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                                 <div class="card-body p-4 p-md-5">
+                                
+                                  <!-- FORMULARIO -->
                                   <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Formulario</h3>
-                                  <form>
+                                  <form th:object="${u}" th:action="@{/insertarUsuario}" method="post">
                                     <div class="form-group row">
                                       <label for="codigo" class="col-4 col-form-label">Código:</label> 
                                       <div class="col-8">
@@ -209,27 +211,27 @@
                                               <i class="fa fa-address-card"></i>
                                             </div>
                                           </div> 
-                                          <input id="codigo" name="codigo" type="text" class="form-control" required="required">
+                                          <input th:field="*{cod_Usuario}" id="codigo" name="codigo" type="text" class="form-control" required="required">
                                         </div>
                                       </div>
                                     </div>
                                     <div class="form-group row">
                                       <label for="nombre" class="col-4 col-form-label">Nombre:</label> 
                                       <div class="col-8">
-                                        <input id="nombre" name="nombre" type="text" class="form-control" required="required">
+                                        <input th:field="*{nom_Usuario}" id="nombre" name="nombre" type="text" class="form-control" required="required">
                                       </div>
                                     </div>
                                     <div class="form-group row">
                                       <label for="apellido" class="col-4 col-form-label">Apellido:</label> 
                                       <div class="col-8">
-                                        <input id="apellido" name="apellido" type="text" class="form-control" required="required">
+                                        <input th:field="*{ape_Usuario}" id="apellido" name="apellido" type="text" class="form-control" required="required">
                                       </div>
                                     </div>
                                     <div class="form-group row">
                                       <label class="col-4">Tipo:</label> 
                                       <div class="col-8">
                                         <div class="custom-control custom-radio custom-control-inline">
-                                          <input name="tipo" id="tipo_0" type="radio" class="custom-control-input" value="1"> 
+                                          <input th:field="*{cod_TipoUsuario}" name="tipo" id="tipo_0" type="radio" class="custom-control-input" value="1"> 
                                           <label for="tipo_0" class="custom-control-label">Administrador</label>
                                         </div>
                                       </div>
@@ -237,13 +239,13 @@
                                     <div class="form-group row">
                                       <label class="col-4 col-form-label" for="text3">Email:</label> 
                                       <div class="col-8">
-                                        <input id="text3" name="text3" type="text" class="form-control" required="required">
+                                        <input th:field="*{email}" id="text3" name="text3" type="text" class="form-control" required="required">
                                       </div>
                                     </div>
                                     <div class="form-group row">
                                       <label for="contraseña" class="col-4 col-form-label">Contraseña:</label> 
                                       <div class="col-8">
-                                        <input id="contraseña" name="contraseña" type="text" class="form-control">
+                                        <input th:field="*{clave}" id="contraseña" name="contraseña" type="text" class="form-control">
                                       </div>
                                     </div>
                                     <div class="form-group row">
@@ -255,17 +257,31 @@
                                               <i class="fa fa-phone"></i>
                                             </div>
                                           </div> 
-                                          <input id="text" name="text" type="text" class="form-control">
+                                          <input th:field="*{telefono}" id="text" name="text" type="text" class="form-control">
                                         </div>
                                       </div>
                                     </div> 
+                                    <div class="form-group row">
+                                      <label for="nacimiento" class="col-4 col-form-label">Fecha de Nacimiento:</label> 
+                                      <div class="col-8">
+                                        <input th:field="*{fecha_nac}" id="nacimiento" name="nacimiento" type="date" class="form-control">
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                      <label for="registro" class="col-4 col-form-label">Fecha de Registro:</label> 
+                                      <div class="col-8">
+                                        <input th:field="*{fecha_reg}" id="registro" name="registro" type="date" class="form-control">
+                                      </div>
+                                    </div>
                                     <div class="form-group row">
                                       <div class="offset-4 col-8">
                                           <br>
                                         <button name="submit" type="submit" class="btn btn-primary">Registrar</button>
                                       </div>
                                     </div>
-                                  </form>
+                                  </form >
+                                  <!-- FIN DEL FORMULARIO -->
+                                  
                                 </div>
                               </div>
                             </div>
