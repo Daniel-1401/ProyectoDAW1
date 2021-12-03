@@ -172,10 +172,6 @@ INSERT INTO Productos VALUES(48, 'Pollo Saltado','Pollo saltado, papas y arroz.'
 Insert Into Boleta VALUES ('DF0001','US0001','2020-03-25','12:21:11');
 Insert Into Boleta VALUES ('DF0002','US0002','2020-03-25','12:21:11');
 Insert Into Boleta VALUES ('DF0003','US0003','2020-03-25','12:21:11');
-Insert Into Boleta VALUES ('DF0004','US0004','2020-03-25','12:21:11');
-Insert Into Boleta VALUES ('DF0005','US0005','2020-03-25','12:21:11');
-Insert Into Boleta VALUES ('DF0006','US0006','2020-03-25','12:21:11');
-Insert Into Boleta VALUES ('DF0007','US0007','2020-03-25','12:21:11');
 
 
 

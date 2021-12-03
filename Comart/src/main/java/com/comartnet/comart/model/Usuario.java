@@ -103,6 +103,24 @@ public class Usuario {
 	public void setFecha_nac(String fecha_nac) {
 		this.fecha_nac = fecha_nac;
 	}
+	
+	public Usuario() {
+		super();
+	}
+
+	public Usuario(String cod_Usuario, String nom_Usuario, String ape_Usuario, int cod_TipoUsuario, String email,
+			String clave, String telefono, String fecha_reg, String fecha_nac) {
+		super();
+		this.cod_Usuario = cod_Usuario;
+		this.nom_Usuario = nom_Usuario;
+		this.ape_Usuario = ape_Usuario;
+		this.cod_TipoUsuario = cod_TipoUsuario;
+		this.email = email;
+		this.clave = clave;
+		this.telefono = telefono;
+		this.fecha_reg = fecha_reg;
+		this.fecha_nac = fecha_nac;
+	}
 
 	@Override
 	public String toString() {

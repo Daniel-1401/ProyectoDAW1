@@ -28,10 +28,18 @@ public class Categoria {
 		this.nom_Categoria = nom_Categoria;
 	}
 
+	public Categoria() {
+		super();
+	}
+
+	public Categoria(int cod_Categoria, String nom_Categoria) {
+		super();
+		this.cod_Categoria = cod_Categoria;
+		this.nom_Categoria = nom_Categoria;
+	}
+
 	@Override
 	public String toString() {
 		return "Categoria [cod_Categoria=" + cod_Categoria + ", nom_Categoria=" + nom_Categoria + "]";
 	}
-	
-	
 }

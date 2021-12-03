@@ -53,12 +53,21 @@ public class Boleta {
 		this.hora_venta = hora_venta;
 	}
 
+	public Boleta() {
+		super();
+	}
+
+	public Boleta(String idBoleta, String cod_Usuario, String fec_venta, String hora_venta) {
+		super();
+		IdBoleta = idBoleta;
+		this.cod_Usuario = cod_Usuario;
+		this.fec_venta = fec_venta;
+		this.hora_venta = hora_venta;
+	}
+
 	@Override
 	public String toString() {
 		return "Boleta [IdBoleta=" + IdBoleta + ", cod_Usuario=" + cod_Usuario + ", fec_venta=" + fec_venta
 				+ ", hora_venta=" + hora_venta + "]";
 	}
-	
-	
-	
 }

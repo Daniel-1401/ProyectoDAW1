@@ -26,11 +26,19 @@ public class Tipo_Usuario {
 	public void setNom_TipoUsuario(String nom_TipoUsuario) {
 		this.nom_TipoUsuario = nom_TipoUsuario;
 	}
+	
+	public Tipo_Usuario() {
+		super();
+	}
+
+	public Tipo_Usuario(int cod_TipoUsuario, String nom_TipoUsuario) {
+		super();
+		this.cod_TipoUsuario = cod_TipoUsuario;
+		this.nom_TipoUsuario = nom_TipoUsuario;
+	}
 
 	@Override
 	public String toString() {
 		return "Tipo_Usuario [cod_TipoUsuario=" + cod_TipoUsuario + ", nom_TipoUsuario=" + nom_TipoUsuario + "]";
 	}
-	
-	
 }

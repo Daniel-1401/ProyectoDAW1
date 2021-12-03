@@ -72,12 +72,25 @@ public class DetallerBoleta {
 	public void setTotal(double total) {
 		Total = total;
 	}
+	
+	public DetallerBoleta() {
+		super();
+	}
+
+	public DetallerBoleta(String idBoleta, int idDetalleBoleta, int id_Producto, int cantidad, double precio,
+			double total) {
+		super();
+		IdBoleta = idBoleta;
+		IdDetalleBoleta = idDetalleBoleta;
+		Id_Producto = id_Producto;
+		Cantidad = cantidad;
+		Precio = precio;
+		Total = total;
+	}
 
 	@Override
 	public String toString() {
 		return "DetallerBoleta [IdBoleta=" + IdBoleta + ", IdDetalleBoleta=" + IdDetalleBoleta + ", Id_Producto="
 				+ Id_Producto + ", Cantidad=" + Cantidad + ", Precio=" + Precio + ", Total=" + Total + "]";
 	}
-	
-	
 }

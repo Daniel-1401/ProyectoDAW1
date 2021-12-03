@@ -94,6 +94,23 @@ public class Producto {
 		this.cod_Categoria = cod_Categoria;
 	}
 
+	public Producto() {
+		super();
+	}
+
+	public Producto(int id_Producto, String nom_Producto, String des_Producto, double precioUnidad, int stock_Producto,
+			int unidadesEnPedido, String imagen, int cod_Categoria) {
+		super();
+		Id_Producto = id_Producto;
+		Nom_Producto = nom_Producto;
+		Des_Producto = des_Producto;
+		PrecioUnidad = precioUnidad;
+		Stock_Producto = stock_Producto;
+		UnidadesEnPedido = unidadesEnPedido;
+		this.imagen = imagen;
+		this.cod_Categoria = cod_Categoria;
+	}
+
 	@Override
 	public String toString() {
 		return "Producto [Id_Producto=" + Id_Producto + ", Nom_Producto=" + Nom_Producto + ", Des_Producto="
@@ -101,7 +118,4 @@ public class Producto {
 				+ ", UnidadesEnPedido=" + UnidadesEnPedido + ", imagen=" + imagen + ", cod_Categoria=" + cod_Categoria
 				+ "]";
 	}
-	
-	
-	
 }
