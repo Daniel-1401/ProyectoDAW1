@@ -29,7 +29,6 @@ public class ProductoService implements IProductoService{
 	@Override
 	public int guardar(Producto p) {
 		int res = 0;
-		System.out.println(p + " PRUEBA AQUI");
 		Producto prod = data.save(p);
 		
 		if(!prod.equals(null)) {

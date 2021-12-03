@@ -47,7 +47,6 @@ public class ProductoController {
 		return "redirect:/listarProductos";
 	}
 	
-
 	@GetMapping("/editarProducto/{id}")
 	public String editarProd(@PathVariable int id, Model model) {
 		Optional<Producto> producto = serviceProducto.listarId(id);
