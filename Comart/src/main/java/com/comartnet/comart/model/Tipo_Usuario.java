@@ -10,4 +10,27 @@ public class Tipo_Usuario {
 	
 	@Column(name = "nom_TipoUsuario")
 	private String nom_TipoUsuario;
+
+	public int getCod_TipoUsuario() {
+		return cod_TipoUsuario;
+	}
+
+	public void setCod_TipoUsuario(int cod_TipoUsuario) {
+		this.cod_TipoUsuario = cod_TipoUsuario;
+	}
+
+	public String getNom_TipoUsuario() {
+		return nom_TipoUsuario;
+	}
+
+	public void setNom_TipoUsuario(String nom_TipoUsuario) {
+		this.nom_TipoUsuario = nom_TipoUsuario;
+	}
+
+	@Override
+	public String toString() {
+		return "Tipo_Usuario [cod_TipoUsuario=" + cod_TipoUsuario + ", nom_TipoUsuario=" + nom_TipoUsuario + "]";
+	}
+	
+	
 }

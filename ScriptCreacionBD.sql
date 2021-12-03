@@ -51,7 +51,6 @@ CREATE TABLE Boleta (
   cod_Usuario char(6),
   fec_venta DATE NOT NULL,
   hora_venta TIME NULL,
-  tot_venta int not null,
   FOREIGN KEY (cod_Usuario) REFERENCES Usuario (cod_Usuario)
 );
 
@@ -59,13 +58,15 @@ CREATE TABLE Boleta (
 
 
 CREATE TABLE DetalleBoleta (
-  IdDetalleBoleta CHAR(6),
+  IdBoleta CHAR(6),
+  IdDetalleBoleta int,
   Id_Producto int NOT NULL,
   Cantidad INT NOT NULL,
   Precio double NOT NULL,
   Total double,
-  constraint IdDetalleBoleta Primary key (IdDetalleBoleta,Id_Producto))
-;
+  constraint IdDetalleBoleta Primary key (IdBoleta,IdDetalleBoleta),
+   FOREIGN KEY (Id_Producto) REFERENCES Productos (Id_Producto)
+);
 
 
 /*
@@ -168,26 +169,25 @@ INSERT INTO Productos VALUES(47, 'Tallarin S/Pollo','Tallarin saltado con trozos
 INSERT INTO Productos VALUES(48, 'Pollo Saltado','Pollo saltado, papas y arroz.',25.90,10,0,'https://cdn.rusticadelivery.com/images/products/71/71-1613268300-6028854c734b8.png',8);
 
 
-Insert Into Boleta VALUES ('DF0001','US0001','2020-03-25','12:21:11',200);
-Insert Into Boleta VALUES ('DF0002','US0002','2020-03-25','12:21:11',100);
-Insert Into Boleta VALUES ('DF0003','US0003','2020-03-25','12:21:11',80);
-Insert Into Boleta VALUES ('DF0004','US0004','2020-03-25','12:21:11',90);
-Insert Into Boleta VALUES ('DF0005','US0005','2020-03-25','12:21:11',65);
-Insert Into Boleta VALUES ('DF0006','US0006','2020-03-25','12:21:11',80);
-Insert Into Boleta VALUES ('DF0007','US0007','2020-03-25','12:21:11',70);
+Insert Into Boleta VALUES ('DF0001','US0001','2020-03-25','12:21:11');
+Insert Into Boleta VALUES ('DF0002','US0002','2020-03-25','12:21:11');
+Insert Into Boleta VALUES ('DF0003','US0003','2020-03-25','12:21:11');
+Insert Into Boleta VALUES ('DF0004','US0004','2020-03-25','12:21:11');
+Insert Into Boleta VALUES ('DF0005','US0005','2020-03-25','12:21:11');
+Insert Into Boleta VALUES ('DF0006','US0006','2020-03-25','12:21:11');
+Insert Into Boleta VALUES ('DF0007','US0007','2020-03-25','12:21:11');
 
 
 
-INSERT INTO DetalleBoleta VALUES ('DF0001',5,2,930,1234);
-INSERT INTO DetalleBoleta VALUES ('DF0002',2,2,930,1234);
-INSERT INTO DetalleBoleta VALUES ('DF0003',20,2,930,1324);
-INSERT INTO DetalleBoleta VALUES ('DF0004',15,2,930,1234);
-INSERT INTO DetalleBoleta VALUES ('DF0005',23,2,930,4321);
-INSERT INTO DetalleBoleta VALUES ('DF0006',10,2,930,1234);
-INSERT INTO DetalleBoleta VALUES ('DF0007',8,2,930,3211);
-INSERT INTO DetalleBoleta VALUES ('DF0008',19,2,930,3214);
-INSERT INTO DetalleBoleta VALUES ('DF0009',31,2,930,1234);
-INSERT INTO DetalleBoleta VALUES ('DF0010',42,2,930,1234);
+INSERT INTO DetalleBoleta VALUES ('DF0001',1,2,1,19.90,19.90);
+INSERT INTO DetalleBoleta VALUES ('DF0001',2,3,2,42.90,85.80);
+INSERT INTO DetalleBoleta VALUES ('DF0001',3,4,1,49.90,49.90);
+
+INSERT INTO DetalleBoleta VALUES ('DF0002',1,2,1,19.90,19.90);
+INSERT INTO DetalleBoleta VALUES ('DF0002',2,3,2,42.90,85.80);
+
+INSERT INTO DetalleBoleta VALUES ('DF0003',3,4,1,49.90,49.90);
+
 
 
 
