@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script src="https://kit.fontawesome.com/c0a6237b34.js" crossorigin="anonymous"></script>
     
 
     <title>Listado de Productos</title>
@@ -70,6 +71,8 @@
                                             <th>Precio</th>
                                             <th>Stock</th>
                                             <th>Categoría</th>
+                                            <th></th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -79,6 +82,7 @@
                                             <th>Precio</th>
                                             <th>Stock</th>
                                             <th>Categoría</th>
+                                            <th></th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -88,6 +92,9 @@
                                             <td th:text="${p.precioUnidad}"></td>
                                             <td th:text="${p.StockProducto}"></td>
                                             <td th:text="${p.codCategoria}"></td>
+                                            <td><button type="button" class="btn btn-outline-primary"><i class="far fa-edit"></i></button>
+                                            	<button type="button" class="btn btn-outline-primary"><i class="far fa-trash-alt"></i></button>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
