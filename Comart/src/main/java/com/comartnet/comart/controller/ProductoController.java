@@ -26,7 +26,7 @@ public class ProductoController {
 	public String listarprod(Model model) {
 		List<Producto> productos =  service.listar();
 		model.addAttribute("lstProductos", productos);
-		return "index";
+		return "tables-productos";
 	}
 	
 	@GetMapping("/nuevoProducto")
