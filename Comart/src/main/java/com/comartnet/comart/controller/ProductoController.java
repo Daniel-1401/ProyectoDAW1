@@ -22,7 +22,7 @@ public class ProductoController {
 	@Autowired
 	private IProductoService service;
 	
-	@GetMapping("/listarProdutos")
+	@GetMapping("/listarProductos")
 	public String listarprod(Model model) {
 		List<Producto> productos =  service.listar();
 		model.addAttribute("lstProductos", productos);
