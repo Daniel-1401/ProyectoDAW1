@@ -35,16 +35,16 @@ public class ProductoController {
 		return "formularioProducto";
 	}
 	
+	@PostMapping("/insertarProducto")
+	public String insertarProd(@Validated Producto p, Model model ) {
+		service.guardar(p);
+		return "redirect:/listarProdutos";
+	}
 	
 	@GetMapping("/editarProducto/{id}")
 	public String editarProd(@PathVariable int id, Model model) {
 		Optional<Producto> producto = service.listarId(id);
 		model.addAttribute("producto", producto);
 		return "formularioProducto";
-	}
-	@PostMapping("/insertarProducto")
-	public String insertarProd(@Validated Producto p, Model model ) {
-		service.guardar(p);
-		return "redirect:/listarProdutos";
 	}
 }
