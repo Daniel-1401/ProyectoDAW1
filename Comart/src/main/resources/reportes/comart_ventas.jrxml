@@ -79,7 +79,7 @@ INNER JOIN usuario ON usuario.cod_Usuario=boleta.cod_Usuario]]>
 		<band height="79" splitType="Stretch">
 			<image>
 				<reportElement x="184" y="20" width="100" height="30" uuid="cd5cc14a-8fa8-4161-8855-abb770c2cbe9"/>
-				<imageExpression><![CDATA["C:/Users/Acer/Downloads/title.png"]]></imageExpression>
+				<imageExpression><![CDATA["/src/main/resources/static/img/title.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="290" y="20" width="328" height="30" uuid="9cdcf1d4-4346-4b34-b0cc-c5f2ac3d00eb"/>

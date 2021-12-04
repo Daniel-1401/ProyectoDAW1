@@ -32,7 +32,7 @@ FROM detalleboleta
 INNER JOIN boleta ON boleta.IdBoleta= detalleboleta.IdBoleta
 INNER JOIN productos ON productos.Id_Producto=detalleboleta.Id_Producto
 INNER JOIN usuario ON usuario.cod_Usuario=boleta.cod_Usuario
-WHERE detalleboleta.IdBoleta= $P{factura} ]]>
+WHERE detalleboleta.IdBoleta= $P{factura}]]>
 	</queryString>
 	<field name="IdBoleta" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="IdBoleta"/>
@@ -117,7 +117,7 @@ WHERE detalleboleta.IdBoleta= $P{factura} ]]>
 			</staticText>
 			<image>
 				<reportElement x="180" y="10" width="107" height="35" uuid="ddcf5e92-6890-427a-9ba7-1d0c7659f1c3"/>
-				<imageExpression><![CDATA["C:/Users/Acer/Downloads/title.png"]]></imageExpression>
+				<imageExpression><![CDATA["/src/main/resources/static/img/title.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="100" y="50" width="140" height="20" uuid="c8271dc8-9e56-4223-b7cf-a1b5f989f26a"/>
@@ -145,15 +145,15 @@ GASEOSA Y OTROS]]></text>
 			</staticText>
 			<image onErrorType="Blank">
 				<reportElement x="260" y="54" width="80" height="46" uuid="4d77cf21-54d6-4af2-90d8-f924f39da92c"/>
-				<imageExpression><![CDATA["C:/Users/Acer/Downloads/comida1.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["/src/main/resources/static/img/comida1.jpg"]]></imageExpression>
 			</image>
 			<image onErrorType="Blank">
 				<reportElement x="570" y="50" width="70" height="40" uuid="b49429bb-9103-4c84-997e-fc1c1add7a0f"/>
-				<imageExpression><![CDATA["C:/Users/Acer/Downloads/gastronomia3.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["/src/main/resources/static/img/gastronomia3.jpg"]]></imageExpression>
 			</image>
 			<image onErrorType="Blank">
 				<reportElement x="10" y="54" width="70" height="46" uuid="558f2a06-9f68-4374-8919-771b15af68c8"/>
-				<imageExpression><![CDATA["C:/Users/Acer/Downloads/gastronomia1.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["/src/main/resources/static/img/gastronomia1.jpg"]]></imageExpression>
 			</image>
 			<rectangle radius="5">
 				<reportElement mode="Opaque" x="340" y="130" width="309" height="20" backcolor="#5424F2" uuid="06593d9a-9856-4567-bc13-4b197427873b"/>
