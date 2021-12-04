@@ -64,7 +64,7 @@ FROM travel2021.productos
 			</staticText>
 			<image>
 				<reportElement x="10" y="20" width="100" height="30" uuid="c1cab519-c888-4a4b-bde2-f3b7b4ddca96"/>
-				<imageExpression><![CDATA["C:/Users/Acer/Downloads/title.png"]]></imageExpression>
+				<imageExpression><![CDATA["/src/main/resources/static/img/title.png"]]></imageExpression>
 			</image>
 			<line>
 				<reportElement x="119" y="52" width="324" height="1" uuid="b98b2b60-5bfa-4f82-8940-ea339fbd2a31"/>
