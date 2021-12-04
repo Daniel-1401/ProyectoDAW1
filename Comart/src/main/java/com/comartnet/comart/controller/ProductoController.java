@@ -58,6 +58,8 @@ public class ProductoController {
 	
 	@GetMapping("/eliminarProducto/{id}")
 	public String eliminarProducto(Model model, @PathVariable int id) {
+		System.out.println("ESTOY EN ELIMINAR " + id);
+		serviceProducto.eliminar(id);
 		return "redirect:/listarProductos";
 	}
 }
