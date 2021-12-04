@@ -7,39 +7,32 @@ import javax.persistence.*;
 public class Categoria {
 	@Id
 	@Column(name = "cod_Categoria")
-	private int cod_Categoria;
+	private int codCategoria;
 	
 	@Column(name = "nom_Categoria")
-	private String nom_Categoria;
+	private String nomCategoria;
 
-	public int getCod_Categoria() {
-		return cod_Categoria;
+	public int getCodCategoria() {
+		return codCategoria;
 	}
 
-	public void setCod_Categoria(int cod_Categoria) {
-		this.cod_Categoria = cod_Categoria;
+	public void setCodCategoria(int codCategoria) {
+		this.codCategoria = codCategoria;
 	}
 
-	public String getNom_Categoria() {
-		return nom_Categoria;
+	public String getNomCategoria() {
+		return nomCategoria;
 	}
 
-	public void setNom_Categoria(String nom_Categoria) {
-		this.nom_Categoria = nom_Categoria;
-	}
-
-	public Categoria() {
-		super();
-	}
-
-	public Categoria(int cod_Categoria, String nom_Categoria) {
-		super();
-		this.cod_Categoria = cod_Categoria;
-		this.nom_Categoria = nom_Categoria;
+	public void setNomCategoria(String nomCategoria) {
+		this.nomCategoria = nomCategoria;
 	}
 
 	@Override
 	public String toString() {
-		return "Categoria [cod_Categoria=" + cod_Categoria + ", nom_Categoria=" + nom_Categoria + "]";
+		return "Categoria [codCategoria=" + codCategoria + ", nomCategoria=" + nomCategoria + "]";
 	}
+
+	
+	
 }

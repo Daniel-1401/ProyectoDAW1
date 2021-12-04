@@ -16,7 +16,6 @@ import com.comartnet.comart.model.Categoria;
 import com.comartnet.comart.repositoryService.ICategoriaService;
 
 @Controller
-@RequestMapping
 public class CategoriaController {
 	
 	@Autowired

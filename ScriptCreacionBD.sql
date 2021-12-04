@@ -39,7 +39,7 @@ CREATE TABLE Productos (
   PrecioUnidad decimal(10,0) not null,
   Stock_Producto smallint not null,
   UnidadesEnPedido smallint not null,
-  imagen varchar(100) not null,
+  imagen longtext not null,
   cod_Categoria int,
   FOREIGN KEY (cod_Categoria) REFERENCES Categoria (cod_Categoria)
 );
